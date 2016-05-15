@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, new TaskListFragment());
+        fragmentTransaction.replace(R.id.fragment_container, new TaskListFragment());
         fragmentTransaction.commit();
     }
 

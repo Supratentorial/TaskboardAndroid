@@ -14,8 +14,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.monash.taskboardandroid.AppConstants;
 import org.monash.taskboardandroid.R;
 import org.monash.taskboardandroid.TaskContentProvider;
+import org.monash.taskboardandroid.datalayer.DatabaseContract;
 import org.monash.taskboardandroid.datalayer.TaskListAdapter;
 
 
@@ -31,25 +33,26 @@ public class TaskListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_task_list, container, false);
-        ;
+
         ContentResolver mResolver = this.getActivity().getContentResolver();
-        Cursor taskCursor = mResolver.query(TaskContentProvider.CONTENT_URI_TASKS, null, null, null, null);
-        TaskListAdapter taskListAdapter = new TaskListAdapter(getActivity(), taskCursor, 0);
+        final Cursor taskCursor = mResolver.query(TaskContentProvider.CONTENT_URI_TASKS, null, null, null, null);
+        final TaskListAdapter taskListAdapter = new TaskListAdapter(getActivity(), taskCursor, 0);
         final ListView mTaskList = (ListView) view.findViewById(R.id.task_list_view);
         mTaskList.setAdapter(taskListAdapter);
         mTaskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, new TaskDetailFragment());
+                Bundle args = new Bundle();
+                args.putLong(AppConstants.PatientId, id);
+                TaskDetailFragment taskDetailFragment = new TaskDetailFragment();
+                taskDetailFragment.setArguments(args);
+                fragmentTransaction.replace(R.id.fragment_container, taskDetailFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-
             }
 
         });
         return view;
     }
-
 }
