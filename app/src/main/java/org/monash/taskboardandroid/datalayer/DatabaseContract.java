@@ -19,6 +19,7 @@ public class DatabaseContract {
     public static final String COLUMN_NAME_WARD = "ward";
     public static final String COLUMN_NAME_BED = "bed";
     public static final String COLUMN_NAME_STATUS = "status";
+    public static final String COLUMN_NAME_TASK_ID = "_id";
     public static final String COLUMN_NAME_TASK_DESCRIPTION = "description";
     public static final String COLUMN_NAME_TASK_BACKGROUND = "background";
 

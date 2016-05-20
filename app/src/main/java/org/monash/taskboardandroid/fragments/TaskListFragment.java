@@ -44,7 +44,7 @@ public class TaskListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 Bundle args = new Bundle();
-                args.putLong(AppConstants.PatientId, id);
+                args.putLong(AppConstants.Id, id);
                 TaskDetailFragment taskDetailFragment = new TaskDetailFragment();
                 taskDetailFragment.setArguments(args);
                 fragmentTransaction.replace(R.id.fragment_container, taskDetailFragment);

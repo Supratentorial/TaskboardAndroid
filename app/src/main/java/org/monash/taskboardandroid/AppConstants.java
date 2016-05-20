@@ -5,4 +5,5 @@ package org.monash.taskboardandroid;
  */
 public class AppConstants {
     public static final String PatientId = "PatientId";
+    public static final String Id = "_id";
 }

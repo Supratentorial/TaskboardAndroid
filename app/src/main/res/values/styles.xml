@@ -38,4 +38,16 @@
         <item name="android:textSize">@dimen/secondary_text_size</item>
     </style>
 
+    <style name="panel">
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/list_view_border</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="horizontalRule">
+        <item name="android:background">@color/borderLines</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
 </resources>
